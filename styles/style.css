@@ -1,0 +1,205 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+
+/* naar een idee van Jen Simmons */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  height: 100vh;
+  margin: 0;
+  background-image: url("../images/achtergrondje.png");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  font-family: "comic sans ms", sans-serif;
+}
+button {
+  scale: 1;
+  transition: scale 0.1s linear;
+}
+
+button:not([disabled]) {
+  cursor: pointer;
+}
+
+button:active {
+  animation: press 0.2s 1 linear;
+}
+button:hover {
+  scale: 1.1;
+  transition: scale 0.1s linear;
+}
+
+figure img {
+  width: 100%;
+  object-fit: contain;
+  -webkit-animation: breathing 5s ease-out infinite normal;
+  animation: breathing 5s ease-out infinite normal;
+}
+
+body > img {
+  display: none;
+}
+
+body > img.show {
+  display: block;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: black;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+main > img {
+  position: absolute;
+  inset: 0;
+  transition: scale 1s linear;
+  scale: 0;
+}
+main > img.fight {
+  transition: scale 1s linear;
+  scale: 4;
+}
+main > section:first-of-type {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+main > section:first-of-type > figure {
+  flex: 1;
+  background-size: contain;
+  margin: 0;
+}
+
+main > section:first-of-type > figure:first-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+main > section:first-of-type > figure:last-of-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+main > section:last-of-type {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main > section p {
+  height: 40%;
+  font-size: 2rem;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 90%;
+  transform: translateY(10%);
+}
+main > section button:first-of-type {
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+main > section button:last-of-type {
+  margin-bottom: auto;
+}
+main > section button {
+  padding: 2rem 2rem;
+  border: 4px solid black;
+  border-radius: 1rem;
+  background-color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  width: fit-content;
+  margin-inline: auto;
+  font-style: italic;
+  font-family: "comic sans ms", sans-serif;
+}
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+  --color-headings: crimson;
+  /* ... */
+}
+
+/********************/
+/* ALGEMENE STYLING */
+/********************/
+
+h1 {
+  color: var(--color-headings);
+}
+
+/* ... */
+
+@-webkit-keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  25% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  60% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  100% {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92);
+  }
+  to {
+    transform: scale(1);
+  }
+}
